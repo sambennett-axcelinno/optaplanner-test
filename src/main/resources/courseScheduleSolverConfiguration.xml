@@ -1,0 +1,13 @@
+<solver>
+    <scanAnnotatedClasses/>
+
+
+
+    <scoreDirectorFactory>
+        <easyScoreCalculatorClass>com.sam.scoreCalculator.ScoreCalculator</easyScoreCalculatorClass>
+    </scoreDirectorFactory>
+
+    <termination>
+        <secondsSpentLimit>10</secondsSpentLimit>
+    </termination>
+</solver>
