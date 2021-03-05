@@ -21,6 +21,7 @@ public class Main {
         List<Integer> rooms = new ArrayList<>();
         rooms.add(123);
         rooms.add(201);
+        rooms.add(303);
         List<Integer> periods = new ArrayList<>();
         periods.add(1);
         periods.add(2);
