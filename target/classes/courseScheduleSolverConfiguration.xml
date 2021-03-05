@@ -1,7 +1,8 @@
 <solver>
     <scanAnnotatedClasses/>
 
-
+    <solutionClass>com.sam.courseSchedule.CourseSchedule</solutionClass>
+    <entityClass>com.sam.lecture.Lecture</entityClass>
 
     <scoreDirectorFactory>
         <easyScoreCalculatorClass>com.sam.scoreCalculator.ScoreCalculator</easyScoreCalculatorClass>

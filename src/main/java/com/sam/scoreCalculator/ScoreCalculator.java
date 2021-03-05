@@ -2,18 +2,16 @@ package com.sam.scoreCalculator;
 
 import com.sam.courseSchedule.CourseSchedule;
 import com.sam.lecture.Lecture;
-import com.sam.teacher.Teacher;
-import org.optaplanner.core.api.score.Score;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
-import org.optaplanner.core.impl.score.director.easy.EasyScoreCalculator;
+import org.optaplanner.core.api.score.calculator.EasyScoreCalculator;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule> {
+public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, HardSoftScore> {
 
     @Override
-    public Score calculateScore(CourseSchedule courseSchedule) {
+    public HardSoftScore calculateScore(CourseSchedule courseSchedule) {
         int hardScore = 0;
         int softScore = 0;
 
@@ -40,7 +38,7 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule> {
             }
         }
 
-        return HardSoftScore.valueOf(hardScore, softScore);
+        return HardSoftScore.of(hardScore, softScore);
     }
 
 }
