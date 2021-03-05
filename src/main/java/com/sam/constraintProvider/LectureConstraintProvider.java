@@ -14,7 +14,8 @@ public class LectureConstraintProvider implements ConstraintProvider {
         return new Constraint[] {
                 roomConflict(constraintFactory),
                 teacherConflict(constraintFactory),
-                teacherConflictBennett(constraintFactory)
+                teacherConflictBennett(constraintFactory),
+                teacherConflictHulk(constraintFactory)
         };
     }
 
@@ -34,7 +35,15 @@ public class LectureConstraintProvider implements ConstraintProvider {
         return constraintFactory.from(Lecture.class)
                 .join(Lecture.class,
                     Joiners.equal(Lecture::getTeacher))
-                .filter(((lecture, lecture2) -> {return (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().equals(123)) == true;}))
+                .filter(((lecture, lecture2) -> {return (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().equals(123));}))
                 .penalize("Does not want room 123", HardSoftScore.ONE_SOFT);
+    }
+
+    Constraint teacherConflictHulk(ConstraintFactory constraintFactory) {
+        return constraintFactory.from(Lecture.class)
+                .join(Lecture.class,
+                        Joiners.equal(Lecture::getTeacher))
+                .filter(((lecture, lecture2) -> {return (lecture.getTeacher().getName().equals("Hulk") && lecture.getPeriod().equals(1));}))
+                .penalize("Does not want period 1", HardSoftScore.ONE_SOFT);
     }
 }
