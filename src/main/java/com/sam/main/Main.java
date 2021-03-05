@@ -6,9 +6,12 @@ import com.sam.teacher.Teacher;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.SolverFactory;
+import org.optaplanner.core.api.solver.SolverJob;
+import org.optaplanner.core.api.solver.SolverManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class Main {
 
@@ -57,6 +60,16 @@ public class Main {
         System.out.println(solvedCourseSchedule.printCourseSchedule());
         System.out.println(solvedCourseSchedule.getScore().getHardScore());
         System.out.println(solvedCourseSchedule.getScore().getSoftScore());
+
+        /*SolverManager<CourseSchedule, Integer> solverManager;
+
+        SolverJob<CourseSchedule, Integer> solverJob = solverManager.solve(1, courseSchedule);
+        CourseSchedule solvedCourseSchedule;
+        try {
+            solvedCourseSchedule = solverJob.getFinalBestSolution();
+        } catch (InterruptedException | ExecutionException e) {
+            throw new IllegalStateException("Solving failed.", e);
+        }*/
     }
 
 }

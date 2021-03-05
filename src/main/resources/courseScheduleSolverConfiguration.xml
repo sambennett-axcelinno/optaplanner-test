@@ -6,6 +6,7 @@
 
     <scoreDirectorFactory>
         <easyScoreCalculatorClass>com.sam.scoreCalculator.ScoreCalculator</easyScoreCalculatorClass>
+        <!--<constraintProviderClass>com.sam.constraintProvider.LectureConstraintProvider</constraintProviderClass>-->
     </scoreDirectorFactory>
 
     <termination>

@@ -1,12 +1,15 @@
 package com.sam.courseSchedule;
 
 import com.sam.lecture.Lecture;
+import org.optaplanner.core.api.domain.lookup.PlanningId;
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
 import org.optaplanner.core.api.domain.solution.PlanningScore;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
 import org.optaplanner.core.api.domain.solution.ProblemFactCollectionProperty;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,7 @@ public class CourseSchedule {
     private List<Integer> periodList;
     private List<Lecture> lectureList;
     private HardSoftScore score;
+
 
     public CourseSchedule(List<Integer> roomList, List<Integer> periodList, List<Lecture> lectureList, HardSoftScore score) {
         this.roomList = roomList;
