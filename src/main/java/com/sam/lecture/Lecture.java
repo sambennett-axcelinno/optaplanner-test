@@ -1,5 +1,6 @@
 package com.sam.lecture;
 
+import com.sam.teacher.Teacher;
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
 
@@ -8,11 +9,15 @@ public class Lecture {
 
     public Integer roomNumber;
     public Integer period;
-    public String teacher;
+    public Teacher teacher;
 
-    public Lecture(Integer roomNumber, Integer period, String teacher) {
+    public Lecture(Integer roomNumber, Integer period, Teacher teacher) {
         this.roomNumber = roomNumber;
         this.period = period;
+        this.teacher = teacher;
+    }
+
+    public Lecture(Teacher teacher) {
         this.teacher = teacher;
     }
 
@@ -40,13 +45,13 @@ public class Lecture {
         this.roomNumber = roomNumber;
     }
 
-    public String getTeacher() {
+    public Teacher getTeacher() {
         return teacher;
     }
 
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(teacher).append(" teaches in room ").append(roomNumber).append(" during period ").append(period);
+        builder.append(teacher.getName()).append(" teaches in room ").append(roomNumber).append(" during period ").append(period);
         return builder.toString();
     }
 }

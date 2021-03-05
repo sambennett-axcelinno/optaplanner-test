@@ -2,6 +2,7 @@ package com.sam.main;
 
 import com.sam.courseSchedule.CourseSchedule;
 import com.sam.lecture.Lecture;
+import com.sam.teacher.Teacher;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.SolverFactory;
@@ -13,11 +14,22 @@ public class Main {
 
     public static void main(String args[]) {
         System.out.println("Hello World");
-        Lecture lecture = new Lecture(123, 1, "Bennett");
+        /*Lecture lecture = new Lecture(123, 1, "Bennett");
         Lecture lecture1 = new Lecture(123, 1, "Hulk");
         Lecture lecture2 = new Lecture(123, 1, "IronMan");
         Lecture lecture3 = new Lecture(123, 1, "Thor");
-        Lecture lecture4 = new Lecture(123, 1, "AntMan");
+        Lecture lecture4 = new Lecture(123, 1, "AntMan");*/
+        Teacher teacher = new Teacher("Bennett");
+        Teacher teacher1 = new Teacher("Hulk");
+        Teacher teacher2 = new Teacher("IronMan");
+        Teacher teacher3 = new Teacher("Thor");
+        Teacher teacher4 = new Teacher("AntMan");
+        Lecture lecture = new Lecture(teacher);
+        Lecture lecture1 = new Lecture(teacher1);
+        Lecture lecture2 = new Lecture(teacher2);
+        Lecture lecture3 = new Lecture(teacher3);
+        Lecture lecture4 = new Lecture(teacher4);
+
         List<Integer> rooms = new ArrayList<>();
         rooms.add(123);
         rooms.add(201);
