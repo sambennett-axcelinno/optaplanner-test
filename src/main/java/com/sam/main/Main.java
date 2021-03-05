@@ -27,11 +27,16 @@ public class Main {
         Teacher teacher2 = new Teacher("IronMan");
         Teacher teacher3 = new Teacher("Thor");
         Teacher teacher4 = new Teacher("AntMan");
-        Lecture lecture = new Lecture(teacher);
+        /*Lecture lecture = new Lecture(teacher);
         Lecture lecture1 = new Lecture(teacher1);
         Lecture lecture2 = new Lecture(teacher2);
         Lecture lecture3 = new Lecture(teacher3);
-        Lecture lecture4 = new Lecture(teacher4);
+        Lecture lecture4 = new Lecture(teacher4);*/
+        Lecture lecture = new Lecture(teacher, 1L);
+        Lecture lecture1 = new Lecture(teacher1, 2L);
+        Lecture lecture2 = new Lecture(teacher2, 3L);
+        Lecture lecture3 = new Lecture(teacher3, 4L);
+        Lecture lecture4 = new Lecture(teacher4, 5L);
 
         List<Integer> rooms = new ArrayList<>();
         rooms.add(123);
