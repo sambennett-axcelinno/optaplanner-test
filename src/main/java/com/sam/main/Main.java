@@ -44,6 +44,7 @@ public class Main {
         CourseSchedule solvedCourseSchedule = solver.solve(courseSchedule);
         System.out.println(solvedCourseSchedule.printCourseSchedule());
         System.out.println(solvedCourseSchedule.getScore().getHardScore());
+        System.out.println(solvedCourseSchedule.getScore().getSoftScore());
     }
 
 }
