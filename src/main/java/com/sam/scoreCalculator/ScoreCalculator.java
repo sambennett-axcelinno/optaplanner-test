@@ -47,6 +47,9 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
                         if (lecture1.getTeacher().getName().equals("Bennett") && lecture1.getRoomNumber().equals(123)) {
                             softScore--;
                         }
+                        if (lecture1.getTeacher().getName().equals("IronMan") && lecture1.getRoomNumber().equals(123)) {
+                            softScore++;
+                        }
                     }
                 }
             }
