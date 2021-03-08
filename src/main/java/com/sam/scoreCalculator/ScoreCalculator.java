@@ -17,22 +17,33 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
 
 
         Set<String> occupiedRooms = new HashSet<>();
-        for (Lecture lecture : courseSchedule.getLectureList()) {
-            if (lecture != null) {
-                if (lecture.getPeriod() != null && lecture.getRoomNumber() != null) {
-                    String roomInUse = lecture.getPeriod().toString() + ":" + lecture.getRoomNumber().toString();
-                    if (occupiedRooms.contains(roomInUse)) {
-                        hardScore += -1;
-                    } else {
-                        occupiedRooms.add(roomInUse);
-                    }
+        /*for (Lecture lecture : courseSchedule.getLectureList()) {
+                if (lecture != null) {
+                    if (lecture.getPeriod() != null && lecture.getRoomNumber() != null) {
+                        String roomInUse = lecture.getPeriod().toString() + ":" + lecture.getRoomNumber().toString();
+                        if (occupiedRooms.contains(roomInUse)) {
+                            hardScore += -1;
+                        } else {
+                            occupiedRooms.add(roomInUse);
+                        }
 
-                    if (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().equals(123)) {
-                        softScore += -1;
-                    }
+                        if (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().equals(123)) {
+                            softScore += -1;
+                        }
 
-                    if (lecture.getTeacher().getName().equals("Thor") && lecture.getPeriod().equals(2)) {
-                        softScore += -1;
+                        if (lecture.getTeacher().getName().equals("Thor") && lecture.getPeriod().equals(2)) {
+                            softScore += -1;
+                        }
+                    }
+                }
+        }*/
+        for (Lecture lecture1 : courseSchedule.getLectureList()) {
+            for (Lecture lecture2 : courseSchedule.getLectureList()) {
+                if (lecture1 != null && lecture2 != null && lecture1.getPeriod() != null && lecture1.getRoomNumber() != null && lecture2.getPeriod() != null && lecture2.getRoomNumber() != null) {
+                    if (!(lecture1.getTeacher().equals(lecture2.getTeacher()))) {
+                        if (lecture1.getPeriod().equals(lecture2.getPeriod()) && lecture1.getRoomNumber().equals(lecture2.getRoomNumber())) {
+                            hardScore--;
+                        }
                     }
                 }
             }

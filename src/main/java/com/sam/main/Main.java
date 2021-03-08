@@ -38,6 +38,7 @@ public class Main {
         Lecture lecture2 = new Lecture(teacher2, 3);
         Lecture lecture3 = new Lecture(teacher3, 4);
         Lecture lecture4 = new Lecture(teacher4, 5);
+        Lecture lecture5 = new Lecture(teacher, 6);
 
         List<Integer> rooms = new ArrayList<>();
         rooms.add(123);
@@ -53,6 +54,7 @@ public class Main {
         lectures.add(lecture2);
         lectures.add(lecture3);
         lectures.add(lecture4);
+        lectures.add(lecture5);
 
         List<Timeslot> timeslotList = new ArrayList<>();
         Timeslot timeslot = new Timeslot();
@@ -70,6 +72,7 @@ public class Main {
         System.out.println(solvedCourseSchedule.printCourseSchedule());
         System.out.println(solvedCourseSchedule.getScore().getHardScore());
         System.out.println(solvedCourseSchedule.getScore().getSoftScore());
+        System.out.println(solvedCourseSchedule.getScore().isFeasible());
 
         /*SolverManager<CourseSchedule, Integer> solverManager;
 
