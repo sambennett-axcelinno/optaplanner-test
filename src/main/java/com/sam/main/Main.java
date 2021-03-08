@@ -39,6 +39,7 @@ public class Main {
         Lecture lecture3 = new Lecture(teacher3, 4);
         Lecture lecture4 = new Lecture(teacher4, 5);
         Lecture lecture5 = new Lecture(teacher, 6);
+        Lecture lecture6 = new Lecture(teacher1, 7);
 
         List<Integer> rooms = new ArrayList<>();
         rooms.add(123);
@@ -47,7 +48,7 @@ public class Main {
         List<Integer> periods = new ArrayList<>();
         periods.add(1);
         periods.add(2);
-        //periods.add(3);
+        periods.add(3);
         List<Lecture> lectures = new ArrayList<>();
         lectures.add(lecture);
         lectures.add(lecture1);
@@ -55,6 +56,7 @@ public class Main {
         lectures.add(lecture3);
         lectures.add(lecture4);
         lectures.add(lecture5);
+        lectures.add(lecture6);
 
         List<Timeslot> timeslotList = new ArrayList<>();
         Timeslot timeslot = new Timeslot();

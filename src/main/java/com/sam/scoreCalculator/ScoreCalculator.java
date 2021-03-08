@@ -17,7 +17,7 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
 
 
         Set<String> occupiedRooms = new HashSet<>();
-        /*for (Lecture lecture : courseSchedule.getLectureList()) {
+        for (Lecture lecture : courseSchedule.getLectureList()) {
                 if (lecture != null) {
                     if (lecture.getPeriod() != null && lecture.getRoomNumber() != null) {
                         String roomInUse = lecture.getPeriod().toString() + ":" + lecture.getRoomNumber().toString();
@@ -34,10 +34,22 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
                         if (lecture.getTeacher().getName().equals("Thor") && lecture.getPeriod().equals(2)) {
                             softScore += -1;
                         }
+
+                        if (lecture.getTeacher().getName().equals("Bennett") && lecture.getPeriod() <= 1) {
+                            softScore--;
+                        }
+
+                        for (Lecture lecture1 : courseSchedule.getLectureList()) {
+                            if (lecture.getTeacher().equals(lecture1.getTeacher()) && lecture1.getPeriod() != null && lecture1.getRoomNumber() != null) {
+                                if (!lecture.getRoomNumber().equals(lecture1.getRoomNumber())) {
+                                    softScore--;
+                                }
+                            }
+                        }
                     }
                 }
-        }*/
-        for (Lecture lecture1 : courseSchedule.getLectureList()) {
+        }
+        /*for (Lecture lecture1 : courseSchedule.getLectureList()) {
             for (Lecture lecture2 : courseSchedule.getLectureList()) {
                 if (lecture1 != null && lecture2 != null && lecture1.getPeriod() != null && lecture1.getRoomNumber() != null && lecture2.getPeriod() != null && lecture2.getRoomNumber() != null) {
                     if (!(lecture1.getTeacher().equals(lecture2.getTeacher()))) {
@@ -52,13 +64,13 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
                         }
                     }
                 }
-            }
+            }*/
             /*if (lecture1 != null && lecture1.getTeacher() != null && lecture1.getRoomNumber() != null && lecture1.getPeriod() != null) {
                 if (lecture1.getTeacher().getName().equals("Bennett") && lecture1.getRoomNumber().equals(123)) {
                     softScore--;
                 }
-            }*/
-        }
+            }
+        }*/
 
         return HardSoftScore.of(hardScore, softScore);
     }
