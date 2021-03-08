@@ -18,16 +18,16 @@ public class Lecture {
     @PlanningId
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
-    public Lecture(Integer roomNumber, Integer period, Teacher teacher, Long id) {
+    public Lecture(Integer roomNumber, Integer period, Teacher teacher, Integer  id) {
         this.roomNumber = roomNumber;
         this.period = period;
         this.teacher = teacher;
         this.id = id;
     }
 
-    public Lecture(Teacher teacher, long id) {
+    public Lecture(Teacher teacher, Integer id) {
         this.teacher = teacher;
         this.id = id;
     }
@@ -58,6 +58,14 @@ public class Lecture {
 
     public Teacher getTeacher() {
         return teacher;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String toString() {

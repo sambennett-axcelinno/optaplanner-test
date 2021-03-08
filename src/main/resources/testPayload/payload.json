@@ -1,0 +1,41 @@
+{
+  "roomList" : [
+    123, 201, 303
+  ],
+  "periodList" : [
+    1, 2
+  ],
+  "lectureList" : [
+    {
+      "teacher" : {
+        "name" : "Bennett"
+      },
+      "id": 1
+    },
+    {
+      "teacher" : {
+        "name" : "Hulk"
+      },
+      "id": 2
+    },
+    {
+      "teacher" : {
+        "name" : "IronMan"
+      },
+      "id": 3
+    },
+    {
+      "teacher" : {
+        "name" : "Thor"
+      },
+      "id": 4
+    },
+    {
+      "teacher" : {
+        "name" : "AntMan"
+      },
+      "id": 5
+    }
+  ],
+  "score" : null
+}

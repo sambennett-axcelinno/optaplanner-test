@@ -32,11 +32,11 @@ public class Main {
         Lecture lecture2 = new Lecture(teacher2);
         Lecture lecture3 = new Lecture(teacher3);
         Lecture lecture4 = new Lecture(teacher4);*/
-        Lecture lecture = new Lecture(teacher, 1L);
-        Lecture lecture1 = new Lecture(teacher1, 2L);
-        Lecture lecture2 = new Lecture(teacher2, 3L);
-        Lecture lecture3 = new Lecture(teacher3, 4L);
-        Lecture lecture4 = new Lecture(teacher4, 5L);
+        Lecture lecture = new Lecture(teacher, 1);
+        Lecture lecture1 = new Lecture(teacher1, 2);
+        Lecture lecture2 = new Lecture(teacher2, 3);
+        Lecture lecture3 = new Lecture(teacher3, 4);
+        Lecture lecture4 = new Lecture(teacher4, 5);
 
         List<Integer> rooms = new ArrayList<>();
         rooms.add(123);
