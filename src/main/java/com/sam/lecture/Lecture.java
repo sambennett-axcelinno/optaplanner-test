@@ -1,6 +1,7 @@
 package com.sam.lecture;
 
 import com.sam.teacher.Teacher;
+import com.sam.timeslot.Timeslot;
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
 import org.optaplanner.core.api.domain.lookup.PlanningId;
 import org.optaplanner.core.api.domain.variable.PlanningVariable;
@@ -14,16 +15,18 @@ public class Lecture {
     public Integer roomNumber;
     public Integer period;
     public Teacher teacher;
+    public Timeslot timeslot;
 
     @PlanningId
     @Id
     @GeneratedValue
     private Integer id;
 
-    public Lecture(Integer roomNumber, Integer period, Teacher teacher, Integer  id) {
+    public Lecture(Integer roomNumber, Integer period, Teacher teacher, Timeslot timeslot, Integer  id) {
         this.roomNumber = roomNumber;
         this.period = period;
         this.teacher = teacher;
+        this.timeslot = timeslot;
         this.id = id;
     }
 
@@ -58,6 +61,15 @@ public class Lecture {
 
     public Teacher getTeacher() {
         return teacher;
+    }
+
+    @PlanningVariable(valueRangeProviderRefs = {"availableTimeslot"})
+    public Timeslot getTimeslot(){
+        return  timeslot;
+    }
+
+    public void setTimeslot(Timeslot timeslot) {
+        this.timeslot = timeslot;
     }
 
     public Integer getId() {

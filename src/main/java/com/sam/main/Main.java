@@ -3,6 +3,7 @@ package com.sam.main;
 import com.sam.courseSchedule.CourseSchedule;
 import com.sam.lecture.Lecture;
 import com.sam.teacher.Teacher;
+import com.sam.timeslot.Timeslot;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.SolverFactory;
@@ -52,7 +53,11 @@ public class Main {
         lectures.add(lecture2);
         lectures.add(lecture3);
         lectures.add(lecture4);
-        CourseSchedule courseSchedule = new CourseSchedule(rooms, periods, lectures, null);
+
+        List<Timeslot> timeslotList = new ArrayList<>();
+        Timeslot timeslot = new Timeslot();
+        timeslotList.add(timeslot);
+        CourseSchedule courseSchedule = new CourseSchedule(rooms, periods, lectures, null, timeslotList);
         /*System.out.println(courseSchedule.getRoomList());
         System.out.println(courseSchedule.getPeriodList());
         System.out.println(courseSchedule.getLectureList().toString());
