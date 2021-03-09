@@ -67,6 +67,6 @@ public class LectureConstraintProvider implements ConstraintProvider {
         return constraintFactory.from(Lecture.class)
                 .join(Lecture.class, Joiners.equal(Lecture::getTeacher), Joiners.equal(Lecture::getPeriod))
                 .filter((lecture, lecture2) -> {return lecture.getTeacher().equals(lecture2.getTeacher()) && (Math.abs(lecture.getPeriod() - lecture2.getPeriod()) != 1);})
-                .penalize("Prefer back to back", HardSoftScore.ONE_SOFT);
+                .penalize("prefer back to back", HardSoftScore.ONE_SOFT);
     }
 }
