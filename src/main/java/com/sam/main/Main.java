@@ -12,6 +12,8 @@ import org.optaplanner.core.api.solver.SolverJob;
 import org.optaplanner.core.api.solver.SolverManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -47,7 +49,7 @@ public class Main {
         rooms.add(201);
         rooms.add(303);*/
         Room room = new Room(123, null);
-        Room room1 = new Room(201, null);
+        Room room1 = new Room(201, Collections.singletonList(1));
         Room room2 = new Room(303, null);
         List<Room> rooms = new ArrayList<>();
         rooms.add(room);

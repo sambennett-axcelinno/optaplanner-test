@@ -27,6 +27,10 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
                             occupiedRooms.add(roomInUse);
                         }
 
+                        if(lecture.getRoomNumber().getPeriodsNotAvailable() != null && lecture.getRoomNumber().getPeriodsNotAvailable().contains(lecture.getPeriod())) {
+                            hardScore--;
+                        }
+
                         if (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().getRoomNumber().equals(123)) {
                             softScore += -1;
                         }
