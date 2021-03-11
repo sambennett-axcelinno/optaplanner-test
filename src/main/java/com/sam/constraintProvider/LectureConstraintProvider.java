@@ -44,7 +44,7 @@ public class LectureConstraintProvider implements ConstraintProvider {
         return constraintFactory.from(Lecture.class)
                 .join(Lecture.class,
                     Joiners.equal(Lecture::getTeacher))
-                .filter(((lecture, lecture2) -> {return (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().equals(123));}))
+                .filter(((lecture, lecture2) -> {return (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().getRoomNumber().equals(123));}))
                 .penalize("Does not want room 123", HardSoftScore.ONE_SOFT);
     }
 
@@ -59,14 +59,14 @@ public class LectureConstraintProvider implements ConstraintProvider {
     Constraint teacherPrefersSameRoom(ConstraintFactory constraintFactory) {
         return constraintFactory.from(Lecture.class)
                 .join(Lecture.class, Joiners.equal(Lecture::getTeacher))
-                .filter((lecture, lecture2) -> {return lecture.getTeacher().equals(lecture2.getTeacher()) && !lecture.getRoomNumber().equals(lecture2.getRoomNumber());})
+                .filter((lecture, lecture2) -> {return lecture.getTeacher().getName().equals(lecture2.getTeacher().getName()) && !lecture.getRoomNumber().getRoomNumber().equals(lecture2.getRoomNumber().getRoomNumber());})
                 .penalize("Prefer same room", HardSoftScore.ONE_SOFT);
     }
 
     Constraint preferBackToBack(ConstraintFactory constraintFactory) {
         return constraintFactory.from(Lecture.class)
                 .join(Lecture.class, Joiners.equal(Lecture::getTeacher), Joiners.equal(Lecture::getPeriod))
-                .filter((lecture, lecture2) -> {return lecture.getTeacher().equals(lecture2.getTeacher()) && (Math.abs(lecture.getPeriod() - lecture2.getPeriod()) != 1);})
+                .filter((lecture, lecture2) -> {return lecture.getTeacher().getName().equals(lecture2.getTeacher().getName()) && (Math.abs(lecture.getPeriod() - lecture2.getPeriod()) != 1);})
                 .penalize("prefer back to back", HardSoftScore.ONE_SOFT);
     }
 }
