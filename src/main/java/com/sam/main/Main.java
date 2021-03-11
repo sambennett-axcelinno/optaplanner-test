@@ -2,6 +2,7 @@ package com.sam.main;
 
 import com.sam.courseSchedule.CourseSchedule;
 import com.sam.lecture.Lecture;
+import com.sam.room.Room;
 import com.sam.teacher.Teacher;
 import com.sam.timeslot.Timeslot;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
@@ -41,10 +42,18 @@ public class Main {
         Lecture lecture5 = new Lecture(teacher, 6);
         Lecture lecture6 = new Lecture(teacher1, 7);
 
-        List<Integer> rooms = new ArrayList<>();
+        /*List<Integer> rooms = new ArrayList<>();
         rooms.add(123);
         rooms.add(201);
-        rooms.add(303);
+        rooms.add(303);*/
+        Room room = new Room(123, null);
+        Room room1 = new Room(201, null);
+        Room room2 = new Room(303, null);
+        List<Room> rooms = new ArrayList<>();
+        rooms.add(room);
+        rooms.add(room1);
+        rooms.add(room2);
+
         List<Integer> periods = new ArrayList<>();
         periods.add(1);
         periods.add(2);
@@ -62,10 +71,6 @@ public class Main {
         Timeslot timeslot = new Timeslot();
         timeslotList.add(timeslot);
         CourseSchedule courseSchedule = new CourseSchedule(rooms, periods, lectures, null, timeslotList);
-        /*System.out.println(courseSchedule.getRoomList());
-        System.out.println(courseSchedule.getPeriodList());
-        System.out.println(courseSchedule.getLectureList().toString());
-        System.out.println(courseSchedule.getScore());*/
 
         SolverFactory<CourseSchedule> solverFactory = SolverFactory.createFromXmlResource("courseScheduleSolverConfiguration.xml");
         Solver<CourseSchedule> solver = solverFactory.buildSolver();
@@ -75,16 +80,6 @@ public class Main {
         System.out.println(solvedCourseSchedule.getScore().getHardScore());
         System.out.println(solvedCourseSchedule.getScore().getSoftScore());
         System.out.println(solvedCourseSchedule.getScore().isFeasible());
-
-        /*SolverManager<CourseSchedule, Integer> solverManager;
-
-        SolverJob<CourseSchedule, Integer> solverJob = solverManager.solve(1, courseSchedule);
-        CourseSchedule solvedCourseSchedule;
-        try {
-            solvedCourseSchedule = solverJob.getFinalBestSolution();
-        } catch (InterruptedException | ExecutionException e) {
-            throw new IllegalStateException("Solving failed.", e);
-        }*/
     }
 
 }

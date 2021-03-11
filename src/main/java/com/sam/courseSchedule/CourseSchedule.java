@@ -1,6 +1,7 @@
 package com.sam.courseSchedule;
 
 import com.sam.lecture.Lecture;
+import com.sam.room.Room;
 import com.sam.timeslot.Timeslot;
 import org.optaplanner.core.api.domain.lookup.PlanningId;
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
@@ -18,14 +19,14 @@ import java.util.List;
 @PlanningSolution
 public class CourseSchedule {
 
-    private List<Integer> roomList;
+    private List<Room> roomList;
     private List<Integer> periodList;
     private List<Lecture> lectureList;
     private HardSoftScore score;
     private List<Timeslot> timeslotList;
 
 
-    public CourseSchedule(List<Integer> roomList, List<Integer> periodList, List<Lecture> lectureList, HardSoftScore score, List<Timeslot> timeslotList) {
+    public CourseSchedule(List<Room> roomList, List<Integer> periodList, List<Lecture> lectureList, HardSoftScore score, List<Timeslot> timeslotList) {
         this.roomList = roomList;
         this.periodList = periodList;
         this.lectureList = lectureList;
@@ -47,11 +48,11 @@ public class CourseSchedule {
 
     @ValueRangeProvider(id = "availableRooms")
     @ProblemFactCollectionProperty
-    public List<Integer> getRoomList() {
+    public List<Room> getRoomList() {
         if (roomList != null) {
             return roomList;
         }
-        return new ArrayList<Integer>();
+        return new ArrayList<Room>();
     }
 
     @ValueRangeProvider(id = "availablePeriods")

@@ -20,14 +20,14 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
         for (Lecture lecture : courseSchedule.getLectureList()) {
                 if (lecture != null) {
                     if (lecture.getPeriod() != null && lecture.getRoomNumber() != null) {
-                        String roomInUse = lecture.getPeriod().toString() + ":" + lecture.getRoomNumber().toString();
+                        String roomInUse = lecture.getPeriod().toString() + ":" + lecture.getRoomNumber().getRoomNumber().toString();
                         if (occupiedRooms.contains(roomInUse)) {
                             hardScore += -1;
                         } else {
                             occupiedRooms.add(roomInUse);
                         }
 
-                        if (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().equals(123)) {
+                        if (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().getRoomNumber().equals(123)) {
                             softScore += -1;
                         }
 
@@ -40,8 +40,8 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
                         }
 
                         for (Lecture lecture1 : courseSchedule.getLectureList()) {
-                            if (lecture.getTeacher().equals(lecture1.getTeacher()) && lecture1.getPeriod() != null && lecture1.getRoomNumber() != null) {
-                                if (!lecture.getRoomNumber().equals(lecture1.getRoomNumber())) {
+                            if (lecture.getTeacher().getName().equals(lecture1.getTeacher().getName()) && lecture1.getPeriod() != null && lecture1.getRoomNumber() != null) {
+                                if (!lecture.getRoomNumber().getRoomNumber().equals(lecture1.getRoomNumber().getRoomNumber())) {
                                     softScore--;
                                 }
                                 if (Math.abs(lecture.getPeriod() - lecture1.getPeriod()) == 1) {

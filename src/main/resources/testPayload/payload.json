@@ -1,9 +1,20 @@
 {
   "roomList" : [
-    123, 201, 303
+    {
+      "roomNumber" : 123,
+      "periodsNotAvailable" : null
+    },
+    {
+      "roomNumber" : 201,
+      "periodsNotAvailable" : null
+    },
+    {
+      "roomNumber" : 303,
+      "periodsNotAvailable" : null
+    }
   ],
   "periodList" : [
-    1, 2
+    1, 2, 3
   ],
   "lectureList" : [
     {

@@ -1,5 +1,6 @@
 package com.sam.lecture;
 
+import com.sam.room.Room;
 import com.sam.teacher.Teacher;
 import com.sam.timeslot.Timeslot;
 import org.optaplanner.core.api.domain.entity.PlanningEntity;
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 @PlanningEntity
 public class Lecture {
 
-    public Integer roomNumber;
+    public Room roomNumber;
     public Integer period;
     public Teacher teacher;
     public Timeslot timeslot;
@@ -22,7 +23,7 @@ public class Lecture {
     @GeneratedValue
     private Integer id;
 
-    public Lecture(Integer roomNumber, Integer period, Teacher teacher, Timeslot timeslot, Integer  id) {
+    public Lecture(Room roomNumber, Integer period, Teacher teacher, Timeslot timeslot, Integer  id) {
         this.roomNumber = roomNumber;
         this.period = period;
         this.teacher = teacher;
@@ -51,11 +52,11 @@ public class Lecture {
 
     @PlanningVariable(
             valueRangeProviderRefs = {"availableRooms"})
-    public Integer getRoomNumber() {
+    public Room getRoomNumber() {
         return roomNumber;
     }
 
-    public void setRoomNumber(Integer roomNumber) {
+    public void setRoomNumber(Room roomNumber) {
         this.roomNumber = roomNumber;
     }
 
@@ -82,7 +83,10 @@ public class Lecture {
 
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append(teacher.getName()).append(" teaches in room ").append(roomNumber).append(" during period ").append(period);
+        if (roomNumber != null) {
+            builder.append(teacher.getName()).append(" teaches in room ").append(roomNumber.getRoomNumber()).append(" during period ").append(period);
+            return builder.toString();
+        }
         return builder.toString();
     }
 }
