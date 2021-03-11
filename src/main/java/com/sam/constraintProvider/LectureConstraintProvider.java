@@ -15,8 +15,9 @@ public class LectureConstraintProvider implements ConstraintProvider {
                 roomConflict(constraintFactory),
                 //teacherConflict(constraintFactory),
                 periodConflict(constraintFactory),
+                periodNotAvailableConflict(constraintFactory),
                 teacherConflictBennett(constraintFactory),
-                teacherConflictHulk(constraintFactory),
+                teacherConflictThor(constraintFactory),
                 teacherPrefersSameRoom(constraintFactory),
                 preferBackToBack(constraintFactory)
         };
@@ -24,7 +25,7 @@ public class LectureConstraintProvider implements ConstraintProvider {
 
     Constraint roomConflict(ConstraintFactory constraintFactory) {
         return constraintFactory.fromUniquePair(Lecture.class,
-                Joiners.equal(Lecture::getRoomNumber), Joiners.equal(Lecture::getPeriod))
+                Joiners.equal(lecture -> lecture.getRoomNumber().getRoomNumber()), Joiners.equal(Lecture::getPeriod))
                 .penalize("Room Conflict", HardSoftScore.ONE_HARD);
     }
 
@@ -40,19 +41,25 @@ public class LectureConstraintProvider implements ConstraintProvider {
                 .penalize("Period Conflict", HardSoftScore.ONE_HARD);
     }
 
+    Constraint periodNotAvailableConflict(ConstraintFactory constraintFactory) {
+        return constraintFactory.from(Lecture.class)
+                .filter(lecture -> {return lecture.getRoomNumber().getPeriodsNotAvailable() != null && lecture.getRoomNumber().getPeriodsNotAvailable().contains(lecture.getPeriod());})
+                .penalize("Room not available during this period", HardSoftScore.ONE_HARD);
+    }
+
     Constraint teacherConflictBennett(ConstraintFactory constraintFactory) {
         return constraintFactory.from(Lecture.class)
                 .join(Lecture.class,
                     Joiners.equal(Lecture::getTeacher))
-                .filter(((lecture, lecture2) -> {return (lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().getRoomNumber().equals(123));}))
-                .penalize("Does not want room 123", HardSoftScore.ONE_SOFT);
+                .filter(((lecture, lecture2) -> {return ((lecture.getTeacher().getName().equals("Bennett") && lecture.getRoomNumber().getRoomNumber().equals(123)) || (lecture.getTeacher().getName().equals("Bennett") && lecture.getPeriod() <= 1));}))
+                .penalize("Bennett conflicts", HardSoftScore.ONE_SOFT);
     }
 
-    Constraint teacherConflictHulk(ConstraintFactory constraintFactory) {
+    Constraint teacherConflictThor(ConstraintFactory constraintFactory) {
         return constraintFactory.from(Lecture.class)
                 .join(Lecture.class,
                         Joiners.equal(Lecture::getTeacher))
-                .filter(((lecture, lecture2) -> {return (lecture.getTeacher().getName().equals("Hulk") && lecture.getPeriod().equals(1));}))
+                .filter(((lecture, lecture2) -> {return (lecture.getTeacher().getName().equals("Thor") && lecture.getPeriod().equals(2));}))
                 .penalize("Does not want period 1", HardSoftScore.ONE_SOFT);
     }
 
@@ -66,7 +73,7 @@ public class LectureConstraintProvider implements ConstraintProvider {
     Constraint preferBackToBack(ConstraintFactory constraintFactory) {
         return constraintFactory.from(Lecture.class)
                 .join(Lecture.class, Joiners.equal(Lecture::getTeacher), Joiners.equal(Lecture::getPeriod))
-                .filter((lecture, lecture2) -> {return lecture.getTeacher().getName().equals(lecture2.getTeacher().getName()) && (Math.abs(lecture.getPeriod() - lecture2.getPeriod()) != 1);})
-                .penalize("prefer back to back", HardSoftScore.ONE_SOFT);
+                .filter((lecture, lecture2) -> {return lecture.getTeacher().getName().equals(lecture2.getTeacher().getName()) && (Math.abs(lecture.getPeriod() - lecture2.getPeriod()) == 1);})
+                .reward("prefer back to back", HardSoftScore.ONE_SOFT);
     }
 }
