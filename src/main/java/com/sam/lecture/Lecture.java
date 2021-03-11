@@ -85,6 +85,9 @@ public class Lecture {
         StringBuilder builder = new StringBuilder();
         if (roomNumber != null) {
             builder.append(teacher.getName()).append(" teaches in room ").append(roomNumber.getRoomNumber()).append(" during period ").append(period);
+            if (roomNumber.getBuilding() != null) {
+                builder.append(" in ").append(roomNumber.getBuilding());
+            }
             return builder.toString();
         }
         return builder.toString();

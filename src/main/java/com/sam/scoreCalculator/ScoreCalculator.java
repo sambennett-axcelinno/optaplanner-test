@@ -52,6 +52,7 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
                                     softScore++;
                                 }
                             }
+
                         }
                     }
                 }

@@ -48,13 +48,15 @@ public class Main {
         rooms.add(123);
         rooms.add(201);
         rooms.add(303);*/
-        Room room = new Room(123, null);
-        Room room1 = new Room(201, Collections.singletonList(1));
-        Room room2 = new Room(303, null);
+        Room room = new Room(123, null, null);
+        Room room1 = new Room(201, Collections.singletonList(1), "Luddy");
+        Room room2 = new Room(303, null, null);
+        Room room3 = new Room(201, Collections.singletonList(1), "Luddy");
         List<Room> rooms = new ArrayList<>();
         rooms.add(room);
         rooms.add(room1);
         rooms.add(room2);
+        rooms.add(room3);
 
         List<Integer> periods = new ArrayList<>();
         periods.add(1);
