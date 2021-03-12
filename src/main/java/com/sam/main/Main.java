@@ -51,7 +51,7 @@ public class Main {
         Room room = new Room(123, null, null);
         Room room1 = new Room(201, Collections.singletonList(1), "Luddy");
         Room room2 = new Room(303, null, null);
-        Room room3 = new Room(201, Collections.singletonList(1), "Luddy");
+        Room room3 = new Room(201, null, "Ballantine");
         List<Room> rooms = new ArrayList<>();
         rooms.add(room);
         rooms.add(room1);
@@ -61,7 +61,7 @@ public class Main {
         List<Integer> periods = new ArrayList<>();
         periods.add(1);
         periods.add(2);
-        periods.add(3);
+        //periods.add(3);
         List<Lecture> lectures = new ArrayList<>();
         lectures.add(lecture);
         lectures.add(lecture1);
@@ -69,7 +69,7 @@ public class Main {
         lectures.add(lecture3);
         lectures.add(lecture4);
         lectures.add(lecture5);
-        lectures.add(lecture6);
+        //lectures.add(lecture6);
 
         List<Timeslot> timeslotList = new ArrayList<>();
         Timeslot timeslot = new Timeslot();

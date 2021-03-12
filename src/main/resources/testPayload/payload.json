@@ -2,15 +2,18 @@
   "roomList" : [
     {
       "roomNumber" : 123,
-      "periodsNotAvailable" : null
+      "periodsNotAvailable" : null,
+      "building" : null
     },
     {
       "roomNumber" : 201,
-      "periodsNotAvailable" : null
+      "periodsNotAvailable" : null,
+      "building" : null
     },
     {
       "roomNumber" : 303,
-      "periodsNotAvailable" : null
+      "periodsNotAvailable" : null,
+      "building" : null
     }
   ],
   "periodList" : [

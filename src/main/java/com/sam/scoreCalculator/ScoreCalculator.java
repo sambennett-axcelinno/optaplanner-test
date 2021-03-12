@@ -20,7 +20,13 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
         for (Lecture lecture : courseSchedule.getLectureList()) {
                 if (lecture != null) {
                     if (lecture.getPeriod() != null && lecture.getRoomNumber() != null) {
-                        String roomInUse = lecture.getPeriod().toString() + ":" + lecture.getRoomNumber().getRoomNumber().toString();
+                        /*String roomInUse = lecture.getPeriod().toString() + ":" + lecture.getRoomNumber().getRoomNumber().toString();
+                        if (occupiedRooms.contains(roomInUse)) {
+                            hardScore += -1;
+                        } else {
+                            occupiedRooms.add(roomInUse);
+                        }*/
+                        String roomInUse = lecture.getPeriod().toString() + ":" + lecture.getRoomNumber().getRoomNumber().toString() + ":" +lecture.getRoomNumber().getBuilding();
                         if (occupiedRooms.contains(roomInUse)) {
                             hardScore += -1;
                         } else {
@@ -52,7 +58,6 @@ public class ScoreCalculator implements EasyScoreCalculator<CourseSchedule, Hard
                                     softScore++;
                                 }
                             }
-
                         }
                     }
                 }

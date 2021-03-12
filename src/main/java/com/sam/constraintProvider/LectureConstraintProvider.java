@@ -13,8 +13,8 @@ public class LectureConstraintProvider implements ConstraintProvider {
     public Constraint[] defineConstraints(ConstraintFactory constraintFactory) {
         return new Constraint[] {
                 roomConflict(constraintFactory),
+                //periodConflict(constraintFactory),
                 //teacherConflict(constraintFactory),
-                periodConflict(constraintFactory),
                 periodNotAvailableConflict(constraintFactory),
                 teacherConflictBennett(constraintFactory),
                 teacherConflictThor(constraintFactory),
@@ -25,7 +25,7 @@ public class LectureConstraintProvider implements ConstraintProvider {
 
     Constraint roomConflict(ConstraintFactory constraintFactory) {
         return constraintFactory.fromUniquePair(Lecture.class,
-                Joiners.equal(lecture -> lecture.getRoomNumber().getRoomNumber()), Joiners.equal(Lecture::getPeriod))
+                Joiners.equal(lecture -> lecture.getRoomNumber().getRoomNumber()), Joiners.equal(Lecture::getPeriod), Joiners.equal(lecture -> lecture.getRoomNumber().getBuilding()))
                 .penalize("Room Conflict", HardSoftScore.ONE_HARD);
     }
 
