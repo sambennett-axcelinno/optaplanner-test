@@ -69,7 +69,7 @@ public class Main {
         lectures.add(lecture3);
         lectures.add(lecture4);
         lectures.add(lecture5);
-        //lectures.add(lecture6);
+        lectures.add(lecture6);
 
         List<Timeslot> timeslotList = new ArrayList<>();
         Timeslot timeslot = new Timeslot();
