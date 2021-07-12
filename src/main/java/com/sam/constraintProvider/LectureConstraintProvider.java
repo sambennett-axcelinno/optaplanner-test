@@ -76,5 +76,5 @@ public class LectureConstraintProvider implements ConstraintProvider {
                 .filter((lecture, lecture2) -> {return lecture.getTeacher().getName().equals(lecture2.getTeacher().getName()) && (Math.abs(lecture.getPeriod() - lecture2.getPeriod()) == 1);})
                 .reward("prefer back to back", HardSoftScore.ONE_SOFT);
     }
-    //test
+    //test 7/12/21
 }
