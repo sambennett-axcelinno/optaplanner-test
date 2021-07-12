@@ -1,4 +1,10 @@
-com/sam/lecture/Lecture.class
+com/sam/timeslot/Timeslot.class
+com/sam/constraintProvider/LectureConstraintProvider.class
 com/sam/scoreCalculator/ScoreCalculator.class
+com/sam/spring/Application.class
+com/sam/room/Room.class
 com/sam/courseSchedule/CourseSchedule.class
+com/sam/teacher/Teacher.class
+com/sam/spring/Controller.class
+com/sam/lecture/Lecture.class
 com/sam/main/Main.class

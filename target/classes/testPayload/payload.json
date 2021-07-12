@@ -1,0 +1,64 @@
+{
+  "roomList" : [
+    {
+      "roomNumber" : 123,
+      "periodsNotAvailable" : null,
+      "building" : null
+    },
+    {
+      "roomNumber" : 201,
+      "periodsNotAvailable" : null,
+      "building" : null
+    },
+    {
+      "roomNumber" : 303,
+      "periodsNotAvailable" : null,
+      "building" : null
+    }
+  ],
+  "periodList" : [
+    1, 2, 3
+  ],
+  "lectureList" : [
+    {
+      "teacher" : {
+        "name" : "Bennett"
+      },
+      "id": 1
+    },
+    {
+      "teacher" : {
+        "name" : "Hulk"
+      },
+      "id": 2
+    },
+    {
+      "teacher" : {
+        "name" : "IronMan"
+      },
+      "id": 3
+    },
+    {
+      "teacher" : {
+        "name" : "Thor"
+      },
+      "id": 4
+    },
+    {
+      "teacher" : {
+        "name" : "AntMan"
+      },
+      "id": 5
+    },
+    {
+      "teacher" : {
+        "name" : "Bennett"
+      },
+      "id": 6
+    }
+  ],
+  "score" : null,
+  "timeslotList" : [
+    {}
+  ]
+}
